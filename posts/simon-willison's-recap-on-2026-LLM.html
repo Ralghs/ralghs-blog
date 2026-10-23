@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Notes on Simon Willison’s 2026 LLM Recap — Ralghs</title>
+    <link rel="stylesheet" href="../style.css">
+  </head>
+
+  <body>
+    <a href="../index.html">← Home</a>
+
+    <article>
+      <h1>Notes on Simon Willison’s 2026 LLM Recap</h1>
+      <time datetime="2026-10-23">October 23, 2026</time>
+
+      <p>
+        I watched Simon Willison’s talk, <a
+        href="https://simonwillison.net/2026/Sep/27/2026-in-llms-so-far/">2026
+        in LLMs (so far)</a>, and wanted to write down what stood out to me.
+      </p>
+
+      <p>
+        The talk looks back at developments from November 2025 through
+        September 2026. The recap below follows his annotated slides and
+        accompanying notes, with my own experience added in the November and
+        January sections. It summarizes selected themes rather than every event.
+      </p>
+
+      <p>
+        Sources: <a href="https://www.youtube.com/watch?v=GAkIytR7vcc">the
+        original video</a> and <a
+        href="https://simonwillison.net/2026/Sep/27/2026-in-llms-so-far/">Simon’s
+        annotated slides and notes</a>. Dates and descriptions reflect the
+        talk’s September 2026 perspective; later updates are linked where relevant.
+      </p>
+
+      <p>
+        Simon also has a soft spot for kākāpō, New Zealand’s flightless
+        parrots. I’m mostly here for the LLMs, so I’ll leave the bird
+        updates to him—apart from one pelican.
+      </p>
+
+      <nav aria-label="Article sections">
+        <p>
+          Jump to:
+          <a href="#november-2025">Nov 2025</a> ·
+          <a href="#january-2026">Jan</a> ·
+          <a href="#february-2026">Feb</a> ·
+          <a href="#march-2026">Mar</a> ·
+          <a href="#april-2026">Apr</a> ·
+          <a href="#may-2026">May</a> ·
+          <a href="#june-2026">Jun</a> ·
+          <a href="#july-2026">Jul</a> ·
+          <a href="#august-2026">Aug</a> ·
+          <a href="#september-2026">Sep</a>
+        </p>
+      </nav>
+
+      <section aria-labelledby="november-2025">
+        <h2 id="november-2025">November 2025: a turning point</h2>
+
+        <h3>When coding agents became more useful</h3>
+        <p>
+          GPT-5.1 was announced on <a
+          href="https://openai.com/index/gpt-5-1/">November 12</a>,
+          followed by Claude Opus 4.5 on <a
+          href="https://www.anthropic.com/news/claude-opus-4-5">November 24</a>.
+          Simon sees this month as an inflection point: paired with their
+          coding agents, the models became reliable enough for his everyday use.
+        </p>
+
+        <p>
+          That matches my own experience with Opus 4.5. It made my work
+          easier, although I still needed to review the code carefully,
+          especially on more complex tasks.
+        </p>
+
+        <h3>The pelican test</h3>
+        <p>
+          Simon tests models by asking them to generate an SVG of a pelican
+          riding a bicycle. I guess one bird was unavoidable. It’s a playful
+          test, not a comprehensive measure of a model’s abilities.
+        </p>
+
+        <p>
+          Neither model’s result was particularly convincing. Simon points
+          out problems with the bicycle frames and the birds themselves.
+          Two things stood out to me:
+        </p>
+
+        <ul>
+          <li>Useful coding ability didn’t guarantee a convincing SVG illustration.</li>
+          <li>A simple visual prompt made some of the models’ limitations easy to spot.</li>
+        </ul>
+
+        <h3>Warelay, before OpenClaw</h3>
+        <p>
+          Simon also highlights the first commit to Peter Steinberger’s
+          Warelay repository on November 24, 2025. The project later became
+          OpenClaw, passing through several names along the way. He documents
+          that history in <a
+          href="https://simonwillison.net/2026/May/16/openclaw-names/">Warelay
+          → OpenClaw</a>.
+        </p>
+      </section>
+
+      <section aria-labelledby="january-2026">
+        <h2 id="january-2026">January 2026: more ambition, mixed feelings</h2>
+
+        <h3>Taking on more projects</h3>
+        <p>
+          Simon changed his New Year’s resolution: instead of taking on fewer
+          projects, he wanted to see how much more he could attempt with coding agents.
+        </p>
+
+        <p>
+          I don’t usually make New Year’s resolutions, but I’ve definitely
+          started more projects this year. One is a macOS app called Switch,
+          which changes the keyboard input language depending on the active
+          application. Another uses the camera to remind me when I’m slouching.
+          I couldn’t have built these without AI agents.
+        </p>
+
+        <p>
+          Simon also predicted that it would become undeniable that LLMs could
+          write good code. That matches my experience. In my current projects,
+          I’ve stopped writing or reviewing the code myself and rely on agents
+          instead. GPT-6.1 has worked very well for me. That describes my own
+          workflow, rather than proving that human review is unnecessary in
+          every situation.
+        </p>
+
+        <h3>Deep Blue and AI mania</h3>
+        <p>
+          There’s an emotional side to this change. On the Oxide and Friends
+          podcast, Adam Leventhal helped name the feeling of professional
+          unease that can come with increasingly capable AI: <a
+          href="https://simonwillison.net/2026/Feb/15/deep-blue/">Deep Blue</a>.
+          Being able to build more can be exciting while also making you
+          question where your own skills fit.
+        </p>
+
+        <p>
+          Simon describes the opposite impulse as AI mania: feeling that an
+          idle agent is a wasted opportunity. He built ambitious Python
+          interpreters, then questioned whether the results were actually useful.
+          He also predicted progress on sandboxing—an important thread to
+          remember when the talk turns to security later in the year.
+        </p>
+      </section>
+
+      <section aria-labelledby="february-2026">
+        <h2 id="february-2026">February 2026: the software factory</h2>
+
+        <p>
+          StrongDM described a <a href="https://factory.strongdm.ai/">software
+          factory</a> where agents write and validate software from specifications
+          and scenarios, without humans writing or reviewing the code. This was
+          a particular team’s experiment, not a universal prescription.
+        </p>
+
+        <p>
+          Crucially, they still needed ways to judge the results. They describe
+          scenarios kept outside the codebase and behavioral replicas of external
+          services for testing. Their approach replaces manual code review with
+          other verification mechanisms; it doesn’t eliminate verification.
+        </p>
+
+        <p>
+          Google also announced <a
+          href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/">Gemini
+          3.1 Pro</a> on February 19. Simon’s pelican examples became much more
+          convincing.
+        </p>
+      </section>
+
+      <section aria-labelledby="march-2026">
+        <h2 id="march-2026">March 2026: personal agents find an audience</h2>
+
+        <p>
+          Simon uses OpenClaw installation events in China to illustrate demand
+          beyond developers. Personal agents promised to do things on a user’s
+          behalf, not just answer questions. That made permissions and safe
+          execution central product questions.
+        </p>
+      </section>
+
+      <section aria-labelledby="april-2026">
+        <h2 id="april-2026">April 2026: capability meets cybersecurity</h2>
+
+        <p>
+          Anthropic announced <a href="https://www.anthropic.com/glasswing">Project
+          Glasswing</a>, giving selected partners access to Claude Mythos Preview
+          for defensive security work. The company said the model’s ability to
+          find and exploit vulnerabilities justified restricting access. Simon
+          found that concern credible, while acknowledging that dramatic safety
+          claims can also serve as marketing.
+        </p>
+
+        <p>
+          There was progress on a very different front, too. A roughly 21GB
+          quantized Qwen3.6-35B-A3B model running on Simon’s laptop produced a
+          <a href="https://simonwillison.net/2026/Apr/16/qwen-beats-opus/">better
+          pelican than Claude Opus 4.7</a>. He explicitly cautions that this
+          doesn’t establish that the smaller model is better overall. It does
+          show why a single entertaining test should stay a single test.
+        </p>
+      </section>
+
+      <section aria-labelledby="may-2026">
+        <h2 id="may-2026">May 2026: the conversation reaches beyond software</h2>
+
+        <p>
+          Pope Leo XIV’s encyclical on AI brought questions of work, dignity,
+          and responsibility into the timeline. In his <a
+          href="https://simonwillison.net/2026/May/25/encyclical-on-ai/">notes
+          on the document</a>, Simon highlights concerns about overreliance,
+          concentrated power, environmental costs, and accountability.
+        </p>
+
+        <p>
+          This widens the discussion beyond model performance: who benefits,
+          who carries the costs, and who answers for decisions made with AI?
+          The month also introduces a RubyGems attack whose attribution becomes
+          part of the later security story.
+        </p>
+      </section>
+
+      <section aria-labelledby="june-2026">
+        <h2 id="june-2026">June 2026: powerful models, interrupted access</h2>
+
+        <p>
+          Simon describes Claude Fable 5 as a step toward agents that can carry
+          out substantial work when given clear goals, constraints, and tools.
+          His point is that defining those things remains skilled engineering work.
+        </p>
+
+        <p>
+          Access was abruptly suspended on June 12. In its <a
+          href="https://www.anthropic.com/news/fable-mythos-access">statement</a>,
+          Anthropic said a US government directive concerning Fable 5 and
+          Mythos 5 forced it to disable access for all customers. The company
+          disputed the justification, arguing that the reported bypass exposed
+          capabilities already available in other models. That distinction matters:
+          the suspension is documented; the necessity of it was contested.
+        </p>
+      </section>
+
+      <section aria-labelledby="july-2026">
+        <h2 id="july-2026">July 2026: competition and containment failures</h2>
+
+        <h3>More capable models, more choices</h3>
+        <p>
+          The <a href="https://simonwillison.net/2026/Jul/9/gpt-5-6/">GPT-5.6
+          family arrived on July 9</a>. Simon’s comparisons emphasize that
+          usefulness depends on the task, reasoning effort, speed, and actual
+          cost—not simply which model sits at the top of a leaderboard.
+        </p>
+
+        <h3>Security evaluations reach real systems</h3>
+        <p>
+          OpenAI disclosed a <a
+          href="https://openai.com/index/hugging-face-model-evaluation-security-incident/">Hugging
+          Face security incident</a> on July 21. Its account describes models
+          exploiting a vulnerability in a package-registry proxy to gain internet
+          access during a cyber evaluation, then compromising external infrastructure
+          while pursuing the evaluation goal.
+        </p>
+
+        <p>
+          Anthropic subsequently reported <a
+          href="https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals">three
+          incidents in its own evaluations</a>. Its explanation differs: unintended
+          internet access was available because of an environment configuration
+          problem, and models treated real targets as part of a simulated exercise.
+          It reported no deliberate attempt to escape the test environment.
+        </p>
+
+        <p>
+          These accounts shouldn’t be flattened into the same mechanism.
+          Both show why isolation, monitoring, and permissions need to be
+          verified independently of what a model has been told.
+        </p>
+      </section>
+
+      <section aria-labelledby="august-2026">
+        <h2 id="august-2026">August 2026: local models and playable prototypes</h2>
+
+        <h3>A strong model on a laptop</h3>
+        <p>
+          Simon’s <a href="https://simonwillison.net/2026/Aug/16/qwen-38-27b/">Qwen
+          3.8 27B experiment</a> used a roughly 17GB quantized model. It generated
+          an impressive pelican, but took 21 minutes at its default reasoning
+          setting. The result illustrates a practical trade-off: a good answer
+          can still arrive too slowly, and reasoning settings affect usability.
+          The file size isn’t a complete statement of hardware requirements.
+        </p>
+
+        <h3>Making a game isn’t the same as making it fun</h3>
+        <p>
+          He also revisited a raccoon-heist concept from 2022. <a
+          href="https://simonwillison.net/2026/Aug/5/raccoon-heist/">Claude
+          Fable 5 built a playable version</a>; <a
+          href="https://simonwillison.net/2026/Aug/7/moonlight-mayhem/">Codex
+          with GPT-5.6 Sol produced another</a> that better matched the heist
+          premise, though it still needed a visible bug fixed.
+        </p>
+
+        <p>
+          A working prototype is a real achievement. Sustained enjoyment,
+          pacing, and a reason to keep playing are separate design problems.
+        </p>
+      </section>
+
+      <section aria-labelledby="september-2026">
+        <h2 id="september-2026">September 2026: better models, harder questions</h2>
+
+        <h3>More of the security story emerges</h3>
+        <p>
+          Independent researchers published <a href="https://collusion.wiki/">evidence
+          of agents communicating through public wikis</a> during web-research
+          tasks. They attributed the activity to OpenAI agents and described
+          it as distinct from the Hugging Face incident. That is a research
+          finding with supporting logs, not a reason to treat every suspected
+          incident as conclusively explained.
+        </p>
+
+        <h3>Cost and reasoning effort still matter</h3>
+        <p>
+          Simon’s <a
+          href="https://simonwillison.net/2026/Sep/22/opus-and-sol-and-luna/">September
+          model comparisons</a> show improving output alongside price competition.
+          They also include a useful counterexample: Opus 5.5 at maximum reasoning
+          exhausted its output budget before returning an SVG. More thinking
+          isn’t automatically better for a particular task.
+        </p>
+      </section>
+
+      <section aria-labelledby="closing-thought">
+        <h2 id="closing-thought">The thread running through the year</h2>
+        <p>
+          Simon ends with a tension: agents handle more routine work, yet the
+          work left for him feels harder. His closing argument is that greater
+          speed doesn’t remove the need for judgment. Deciding what matters,
+          checking outcomes, and setting boundaries remain central.
+        </p>
+      </section>
+
+    </article>
+    <script src="https://giscus.app/client.js"
+      data-repo="Ralghs/ralghs-blog"
+      data-repo-id="R_kgDOVQraTQ"
+      data-category="Announcements"
+      data-category-id="DIC_kwDOVQraTc4DJJ0J"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="light"
+      data-lang="en"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </body>
+</html>
